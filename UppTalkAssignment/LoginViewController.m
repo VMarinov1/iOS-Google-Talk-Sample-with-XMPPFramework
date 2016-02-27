@@ -1,21 +1,22 @@
 //
-//  ViewController.m
+//  LoginViewController.m
 //  UppTalkAssignment
 //
 //  Created by Vladimir Marinov on 27.02.16.
 //  Copyright © 2016 Vladimir Marinov. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "LoginViewController.h"
 
-@interface ViewController ()
+@interface LoginViewController ()
 
 @end
 
-@implementation ViewController
+@implementation LoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.title = @"Login";
     // Do any additional setup after loading the view, typically from a nib.
 }
 

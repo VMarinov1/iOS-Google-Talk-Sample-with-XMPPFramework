@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		22BD92091C818E8400B5937D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BD92081C818E8400B5937D /* main.m */; };
 		22BD920C1C818E8400B5937D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BD920B1C818E8400B5937D /* AppDelegate.m */; };
-		22BD920F1C818E8400B5937D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BD920E1C818E8400B5937D /* ViewController.m */; };
+		22BD920F1C818E8400B5937D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BD920E1C818E8400B5937D /* LoginViewController.m */; };
 		22BD92121C818E8400B5937D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22BD92101C818E8400B5937D /* Main.storyboard */; };
 		22BD92141C818E8400B5937D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22BD92131C818E8400B5937D /* Assets.xcassets */; };
 		22BD92171C818E8400B5937D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22BD92151C818E8400B5937D /* LaunchScreen.storyboard */; };
@@ -39,8 +39,8 @@
 		22BD92081C818E8400B5937D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		22BD920A1C818E8400B5937D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22BD920B1C818E8400B5937D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		22BD920D1C818E8400B5937D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		22BD920E1C818E8400B5937D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		22BD920D1C818E8400B5937D /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		22BD920E1C818E8400B5937D /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		22BD92111C818E8400B5937D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22BD92131C818E8400B5937D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22BD92161C818E8400B5937D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -103,12 +103,8 @@
 			children = (
 				22BD920A1C818E8400B5937D /* AppDelegate.h */,
 				22BD920B1C818E8400B5937D /* AppDelegate.m */,
-				22BD920D1C818E8400B5937D /* ViewController.h */,
-				22BD920E1C818E8400B5937D /* ViewController.m */,
-				22BD92101C818E8400B5937D /* Main.storyboard */,
-				22BD92131C818E8400B5937D /* Assets.xcassets */,
-				22BD92151C818E8400B5937D /* LaunchScreen.storyboard */,
-				22BD92181C818E8400B5937D /* Info.plist */,
+				22BD923B1C81AEB900B5937D /* ViewControllers */,
+				22BD923A1C81AD8F00B5937D /* Resources */,
 				22BD92071C818E8400B5937D /* Supporting Files */,
 			);
 			path = UppTalkAssignment;
@@ -117,6 +113,7 @@
 		22BD92071C818E8400B5937D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				22BD92181C818E8400B5937D /* Info.plist */,
 				22BD92081C818E8400B5937D /* main.m */,
 			);
 			name = "Supporting Files";
@@ -138,6 +135,25 @@
 				22BD922E1C818E8400B5937D /* Info.plist */,
 			);
 			path = UppTalkAssignmentUITests;
+			sourceTree = "<group>";
+		};
+		22BD923A1C81AD8F00B5937D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				22BD92101C818E8400B5937D /* Main.storyboard */,
+				22BD92131C818E8400B5937D /* Assets.xcassets */,
+				22BD92151C818E8400B5937D /* LaunchScreen.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		22BD923B1C81AEB900B5937D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				22BD920D1C818E8400B5937D /* LoginViewController.h */,
+				22BD920E1C818E8400B5937D /* LoginViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,7 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22BD920F1C818E8400B5937D /* ViewController.m in Sources */,
+				22BD920F1C818E8400B5937D /* LoginViewController.m in Sources */,
 				22BD920C1C818E8400B5937D /* AppDelegate.m in Sources */,
 				22BD92091C818E8400B5937D /* main.m in Sources */,
 			);
@@ -415,6 +431,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Vladimir-Marinov.UppTalkAssignment";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -426,6 +443,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Vladimir-Marinov.UppTalkAssignment";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -496,6 +514,7 @@
 				22BD92331C818E8400B5937D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		22BD92341C818E8400B5937D /* Build configuration list for PBXNativeTarget "UppTalkAssignmentTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +523,7 @@
 				22BD92361C818E8400B5937D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		22BD92371C818E8400B5937D /* Build configuration list for PBXNativeTarget "UppTalkAssignmentUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +532,7 @@
 				22BD92391C818E8400B5937D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
