@@ -15,6 +15,11 @@
 		22BD92171C818E8400B5937D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22BD92151C818E8400B5937D /* LaunchScreen.storyboard */; };
 		22BD92221C818E8400B5937D /* UppTalkAssignmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BD92211C818E8400B5937D /* UppTalkAssignmentTests.m */; };
 		22BD922D1C818E8400B5937D /* UppTalkAssignmentUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BD922C1C818E8400B5937D /* UppTalkAssignmentUITests.m */; };
+		22BD92481C8249EE00B5937D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BD92471C8249EE00B5937D /* CFNetwork.framework */; };
+		22BD924A1C824A0700B5937D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BD92491C824A0700B5937D /* Security.framework */; };
+		22BD924E1C824B4900B5937D /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BD924D1C824B4900B5937D /* libresolv.9.tbd */; };
+		22BD92501C824BAE00B5937D /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BD924F1C824BAE00B5937D /* libxml2.tbd */; };
+		FDE84CE082524402801A715A /* libPods-UppTalkAssignment.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C66CA2AC0E1AAE2C56BD816 /* libPods-UppTalkAssignment.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,13 @@
 		22BD92281C818E8400B5937D /* UppTalkAssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UppTalkAssignmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22BD922C1C818E8400B5937D /* UppTalkAssignmentUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UppTalkAssignmentUITests.m; sourceTree = "<group>"; };
 		22BD922E1C818E8400B5937D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22BD92471C8249EE00B5937D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		22BD92491C824A0700B5937D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		22BD924D1C824B4900B5937D /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
+		22BD924F1C824BAE00B5937D /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		276A1E757436867D3D4CF5CC /* Pods-UppTalkAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UppTalkAssignment.release.xcconfig"; path = "Pods/Target Support Files/Pods-UppTalkAssignment/Pods-UppTalkAssignment.release.xcconfig"; sourceTree = "<group>"; };
+		5C66CA2AC0E1AAE2C56BD816 /* libPods-UppTalkAssignment.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UppTalkAssignment.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2A75B7082CD6869F2E41A7A /* Pods-UppTalkAssignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UppTalkAssignment.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UppTalkAssignment/Pods-UppTalkAssignment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22BD92501C824BAE00B5937D /* libxml2.tbd in Frameworks */,
+				22BD924E1C824B4900B5937D /* libresolv.9.tbd in Frameworks */,
+				22BD924A1C824A0700B5937D /* Security.framework in Frameworks */,
+				22BD92481C8249EE00B5937D /* CFNetwork.framework in Frameworks */,
+				FDE84CE082524402801A715A /* libPods-UppTalkAssignment.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +102,8 @@
 				22BD92201C818E8400B5937D /* UppTalkAssignmentTests */,
 				22BD922B1C818E8400B5937D /* UppTalkAssignmentUITests */,
 				22BD92051C818E8400B5937D /* Products */,
+				808E70E0C3C392D503ED9C6B /* Pods */,
+				E1825C2F079319977F7CEDA6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,6 +175,27 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		808E70E0C3C392D503ED9C6B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A2A75B7082CD6869F2E41A7A /* Pods-UppTalkAssignment.debug.xcconfig */,
+				276A1E757436867D3D4CF5CC /* Pods-UppTalkAssignment.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E1825C2F079319977F7CEDA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22BD92491C824A0700B5937D /* Security.framework */,
+				22BD92471C8249EE00B5937D /* CFNetwork.framework */,
+				22BD924F1C824BAE00B5937D /* libxml2.tbd */,
+				22BD924D1C824B4900B5937D /* libresolv.9.tbd */,
+				5C66CA2AC0E1AAE2C56BD816 /* libPods-UppTalkAssignment.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -163,9 +203,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22BD92311C818E8400B5937D /* Build configuration list for PBXNativeTarget "UppTalkAssignment" */;
 			buildPhases = (
+				75E02C68FF5BF67DD02FB4C5 /* Check Pods Manifest.lock */,
 				22BD92001C818E8400B5937D /* Sources */,
 				22BD92011C818E8400B5937D /* Frameworks */,
 				22BD92021C818E8400B5937D /* Resources */,
+				D81CD4683356AD26B67891BC /* Embed Pods Frameworks */,
+				2C229F3AB65532CA7264053E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -280,6 +323,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C229F3AB65532CA7264053E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UppTalkAssignment/Pods-UppTalkAssignment-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75E02C68FF5BF67DD02FB4C5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D81CD4683356AD26B67891BC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UppTalkAssignment/Pods-UppTalkAssignment-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		22BD92001C818E8400B5937D /* Sources */ = {
@@ -425,10 +516,12 @@
 		};
 		22BD92321C818E8400B5937D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2A75B7082CD6869F2E41A7A /* Pods-UppTalkAssignment.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = UppTalkAssignment/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "Vladimir-Marinov.UppTalkAssignment";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -437,10 +530,12 @@
 		};
 		22BD92331C818E8400B5937D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 276A1E757436867D3D4CF5CC /* Pods-UppTalkAssignment.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = UppTalkAssignment/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "Vladimir-Marinov.UppTalkAssignment";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

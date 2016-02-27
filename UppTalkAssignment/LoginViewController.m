@@ -10,6 +10,9 @@
 
 @interface LoginViewController ()
 
+@property (nonatomic) IBOutlet UITextField* username;
+@property (nonatomic) IBOutlet UITextField* password;
+
 @end
 
 @implementation LoginViewController
@@ -24,5 +27,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - 
+- (IBAction)doLogin:(id)sender {
+    
+}
+
 
 @end

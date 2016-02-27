@@ -23,7 +23,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pk9-uw-huL">
                                         <rect key="frame" x="59" y="60" width="221" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBG-th-8yZ">
                                         <rect key="frame" x="8" y="26" width="50" height="21"/>
@@ -48,6 +48,9 @@
                                             <constraint firstAttribute="height" constant="22" id="sl0-dB-TvX"/>
                                         </constraints>
                                         <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="doLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jEu-39-4F2"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.31721190912157687" green="0.67111072129922777" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,6 +66,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="T9F-AH-trO"/>
+                    <connections>
+                        <outlet property="password" destination="Pk9-uw-huL" id="yFt-cL-WWL"/>
+                        <outlet property="username" destination="mFR-6b-pNI" id="soA-rE-Kpw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
