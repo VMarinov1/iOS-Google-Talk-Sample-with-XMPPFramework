@@ -17,31 +17,12 @@
 		22BD92121C818E8400B5937D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22BD92101C818E8400B5937D /* Main.storyboard */; };
 		22BD92141C818E8400B5937D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22BD92131C818E8400B5937D /* Assets.xcassets */; };
 		22BD92171C818E8400B5937D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22BD92151C818E8400B5937D /* LaunchScreen.storyboard */; };
-		22BD92221C818E8400B5937D /* UppTalkAssignmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BD92211C818E8400B5937D /* UppTalkAssignmentTests.m */; };
-		22BD922D1C818E8400B5937D /* UppTalkAssignmentUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BD922C1C818E8400B5937D /* UppTalkAssignmentUITests.m */; };
 		22BD92481C8249EE00B5937D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BD92471C8249EE00B5937D /* CFNetwork.framework */; };
 		22BD924A1C824A0700B5937D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BD92491C824A0700B5937D /* Security.framework */; };
 		22BD924E1C824B4900B5937D /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BD924D1C824B4900B5937D /* libresolv.9.tbd */; };
 		22BD92501C824BAE00B5937D /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BD924F1C824BAE00B5937D /* libxml2.tbd */; };
 		FDE84CE082524402801A715A /* libPods-UppTalkAssignment.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C66CA2AC0E1AAE2C56BD816 /* libPods-UppTalkAssignment.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		22BD921E1C818E8400B5937D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 22BD91FC1C818E8400B5937D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 22BD92031C818E8400B5937D;
-			remoteInfo = UppTalkAssignment;
-		};
-		22BD92291C818E8400B5937D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 22BD91FC1C818E8400B5937D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 22BD92031C818E8400B5937D;
-			remoteInfo = UppTalkAssignment;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		220BD98D1C834E2B00EF463F /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
@@ -62,12 +43,6 @@
 		22BD92131C818E8400B5937D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22BD92161C818E8400B5937D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22BD92181C818E8400B5937D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		22BD921D1C818E8400B5937D /* UppTalkAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UppTalkAssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		22BD92211C818E8400B5937D /* UppTalkAssignmentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UppTalkAssignmentTests.m; sourceTree = "<group>"; };
-		22BD92231C818E8400B5937D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		22BD92281C818E8400B5937D /* UppTalkAssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UppTalkAssignmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		22BD922C1C818E8400B5937D /* UppTalkAssignmentUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UppTalkAssignmentUITests.m; sourceTree = "<group>"; };
-		22BD922E1C818E8400B5937D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22BD92471C8249EE00B5937D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		22BD92491C824A0700B5937D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		22BD924D1C824B4900B5937D /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
@@ -90,20 +65,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		22BD921A1C818E8400B5937D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22BD92251C818E8400B5937D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -122,8 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				22BD92061C818E8400B5937D /* UppTalkAssignment */,
-				22BD92201C818E8400B5937D /* UppTalkAssignmentTests */,
-				22BD922B1C818E8400B5937D /* UppTalkAssignmentUITests */,
 				22BD92051C818E8400B5937D /* Products */,
 				808E70E0C3C392D503ED9C6B /* Pods */,
 				E1825C2F079319977F7CEDA6 /* Frameworks */,
@@ -134,8 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				22BD92041C818E8400B5937D /* UppTalkAssignment.app */,
-				22BD921D1C818E8400B5937D /* UppTalkAssignmentTests.xctest */,
-				22BD92281C818E8400B5937D /* UppTalkAssignmentUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -160,24 +117,6 @@
 				22BD92081C818E8400B5937D /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		22BD92201C818E8400B5937D /* UppTalkAssignmentTests */ = {
-			isa = PBXGroup;
-			children = (
-				22BD92211C818E8400B5937D /* UppTalkAssignmentTests.m */,
-				22BD92231C818E8400B5937D /* Info.plist */,
-			);
-			path = UppTalkAssignmentTests;
-			sourceTree = "<group>";
-		};
-		22BD922B1C818E8400B5937D /* UppTalkAssignmentUITests */ = {
-			isa = PBXGroup;
-			children = (
-				22BD922C1C818E8400B5937D /* UppTalkAssignmentUITests.m */,
-				22BD922E1C818E8400B5937D /* Info.plist */,
-			);
-			path = UppTalkAssignmentUITests;
 			sourceTree = "<group>";
 		};
 		22BD923A1C81AD8F00B5937D /* Resources */ = {
@@ -247,42 +186,6 @@
 			productReference = 22BD92041C818E8400B5937D /* UppTalkAssignment.app */;
 			productType = "com.apple.product-type.application";
 		};
-		22BD921C1C818E8400B5937D /* UppTalkAssignmentTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 22BD92341C818E8400B5937D /* Build configuration list for PBXNativeTarget "UppTalkAssignmentTests" */;
-			buildPhases = (
-				22BD92191C818E8400B5937D /* Sources */,
-				22BD921A1C818E8400B5937D /* Frameworks */,
-				22BD921B1C818E8400B5937D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				22BD921F1C818E8400B5937D /* PBXTargetDependency */,
-			);
-			name = UppTalkAssignmentTests;
-			productName = UppTalkAssignmentTests;
-			productReference = 22BD921D1C818E8400B5937D /* UppTalkAssignmentTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		22BD92271C818E8400B5937D /* UppTalkAssignmentUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 22BD92371C818E8400B5937D /* Build configuration list for PBXNativeTarget "UppTalkAssignmentUITests" */;
-			buildPhases = (
-				22BD92241C818E8400B5937D /* Sources */,
-				22BD92251C818E8400B5937D /* Frameworks */,
-				22BD92261C818E8400B5937D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				22BD922A1C818E8400B5937D /* PBXTargetDependency */,
-			);
-			name = UppTalkAssignmentUITests;
-			productName = UppTalkAssignmentUITests;
-			productReference = 22BD92281C818E8400B5937D /* UppTalkAssignmentUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -294,14 +197,6 @@
 				TargetAttributes = {
 					22BD92031C818E8400B5937D = {
 						CreatedOnToolsVersion = 7.2;
-					};
-					22BD921C1C818E8400B5937D = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = 22BD92031C818E8400B5937D;
-					};
-					22BD92271C818E8400B5937D = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = 22BD92031C818E8400B5937D;
 					};
 				};
 			};
@@ -319,8 +214,6 @@
 			projectRoot = "";
 			targets = (
 				22BD92031C818E8400B5937D /* UppTalkAssignment */,
-				22BD921C1C818E8400B5937D /* UppTalkAssignmentTests */,
-				22BD92271C818E8400B5937D /* UppTalkAssignmentUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -333,20 +226,6 @@
 				22BD92171C818E8400B5937D /* LaunchScreen.storyboard in Resources */,
 				22BD92141C818E8400B5937D /* Assets.xcassets in Resources */,
 				22BD92121C818E8400B5937D /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22BD921B1C818E8400B5937D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22BD92261C818E8400B5937D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,36 +294,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		22BD92191C818E8400B5937D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				22BD92221C818E8400B5937D /* UppTalkAssignmentTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22BD92241C818E8400B5937D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				22BD922D1C818E8400B5937D /* UppTalkAssignmentUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		22BD921F1C818E8400B5937D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 22BD92031C818E8400B5937D /* UppTalkAssignment */;
-			targetProxy = 22BD921E1C818E8400B5937D /* PBXContainerItemProxy */;
-		};
-		22BD922A1C818E8400B5937D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 22BD92031C818E8400B5937D /* UppTalkAssignment */;
-			targetProxy = 22BD92291C818E8400B5937D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		22BD92101C818E8400B5937D /* Main.storyboard */ = {
@@ -574,54 +424,6 @@
 			};
 			name = Release;
 		};
-		22BD92351C818E8400B5937D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = UppTalkAssignmentTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Vladimir-Marinov.UppTalkAssignmentTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UppTalkAssignment.app/UppTalkAssignment";
-			};
-			name = Debug;
-		};
-		22BD92361C818E8400B5937D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = UppTalkAssignmentTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Vladimir-Marinov.UppTalkAssignmentTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UppTalkAssignment.app/UppTalkAssignment";
-			};
-			name = Release;
-		};
-		22BD92381C818E8400B5937D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = UppTalkAssignmentUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Vladimir-Marinov.UppTalkAssignmentUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = UppTalkAssignment;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		22BD92391C818E8400B5937D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = UppTalkAssignmentUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Vladimir-Marinov.UppTalkAssignmentUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = UppTalkAssignment;
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -639,24 +441,6 @@
 			buildConfigurations = (
 				22BD92321C818E8400B5937D /* Debug */,
 				22BD92331C818E8400B5937D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		22BD92341C818E8400B5937D /* Build configuration list for PBXNativeTarget "UppTalkAssignmentTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				22BD92351C818E8400B5937D /* Debug */,
-				22BD92361C818E8400B5937D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		22BD92371C818E8400B5937D /* Build configuration list for PBXNativeTarget "UppTalkAssignmentUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				22BD92381C818E8400B5937D /* Debug */,
-				22BD92391C818E8400B5937D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

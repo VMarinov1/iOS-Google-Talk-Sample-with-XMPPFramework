@@ -9,11 +9,5 @@ pod 'XMPPFramework', '~> 3.6'
 
 end
 
-target 'UppTalkAssignmentTests' do
 
-end
-
-target 'UppTalkAssignmentUITests' do
-
-end
 
