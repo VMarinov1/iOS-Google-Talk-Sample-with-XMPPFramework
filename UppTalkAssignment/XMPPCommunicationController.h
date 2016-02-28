@@ -12,7 +12,10 @@
 
 @protocol XMPPCommunicationProtocol <NSObject>
 
+@optional
 - (void)didLogin:(BOOL)success withError:(NSError*)error;
+- (void)didReceiveMessage:(NSString *)message;
+- (void)didFailToSendMessage:(NSString *)message error:(NSError *)error;
 
 @end
 
@@ -27,5 +30,6 @@
 
 - (NSManagedObjectContext *)managedObjectContext_roster;
 - (NSManagedObjectContext *)managedObjectContext_capabilities;
+- (void)sendMessage:(NSString*)message toJid:(NSString*)toJid;
 
 @end

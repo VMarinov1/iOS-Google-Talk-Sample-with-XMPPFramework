@@ -22,6 +22,7 @@
 #import "DDLog.h"
 #import "DDTTYLogger.h"
 #import "XMPPvCardCoreDataStorage.h"
+#import "UserSettings.h"
 
 
 #define kGoogleHostName @"talk.google.com"
@@ -42,14 +43,14 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 - (void)terminate;
 
 @property (strong, nonatomic) XMPPStream *xmppStream;
-@property (strong, nonatomic) NSString *password;
+
 @property (strong, nonatomic) XMPPReconnect *xmppReconnect;
 @property (strong, nonatomic) XMPPRoster *xmppRoster;
 @property (strong, nonatomic) XMPPRosterCoreDataStorage *xmppRosterStorage;
 @property (strong, nonatomic) XMPPvCardTempModule *xmppvCardTempModule;
 @property (strong, nonatomic) XMPPCapabilities *xmppCapabilities;
 @property (strong, nonatomic) XMPPCapabilitiesCoreDataStorage *xmppCapabilitiesStorage;
-@property (assign, nonatomic) BOOL isAuthenticated;
+@property (strong, nonatomic) UserSettings *userSettings;
 
 @end
 
@@ -59,6 +60,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 
 - (id)init {
     if(self = [super init]) {
+        self.userSettings = [[UserSettings alloc] init];
         [DDLog addLogger:[DDTTYLogger sharedInstance] withLogLevel:XMPP_LOG_FLAG_SEND_RECV];
         [self setupStream];
         return self;
@@ -72,7 +74,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     // Setup xmpp stream
     _xmppStream = [[XMPPStream alloc] init];
     [_xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
-    _isAuthenticated = NO;
+    self.userSettings.isAuthenticated = NO;
 #if !TARGET_IPHONE_SIMULATOR
     {
         // Want xmpp to run in the background?
@@ -134,7 +136,9 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     if ([self.xmppStream isConnected] == YES) {
         return YES;
     }
-    self.password = password;
+    self.userSettings.password = password;
+    self.userSettings.userName = username;
+    
     self.xmppStream.myJID = [XMPPJID jidWithString:username];
     self.xmppStream.hostName = kGoogleHostName;
     
@@ -156,7 +160,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 - (void)disconnect {
     [self goOffline];
     [self.xmppStream disconnect];
-    _isAuthenticated = NO;
+    self.userSettings.isAuthenticated = NO;
 }
 
 /*! @brief set user's status to online */
@@ -168,9 +172,9 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 }
 - (void)goOffline {
     XMPPPresence *presence = [XMPPPresence presenceWithType:@"unavailable"];
-    
     [[self xmppStream] sendElement:presence];
 }
+
 #pragma mark XMPPStream Delegate
 - (void)xmppStream:(XMPPStream *)sender socketDidConnect:(GCDAsyncSocket *)socket {
     DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
@@ -178,7 +182,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 
 - (void)xmppStreamDidConnect:(XMPPStream *)sender {
     NSError *error = nil;    
-    if (![[self xmppStream] authenticateWithPassword:self.password error:&error]) {
+    if (![[self xmppStream] authenticateWithPassword:self.userSettings.password error:&error]) {
         NSLog(@"Error authenticating: %@", error);
     }
 }
@@ -191,11 +195,11 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     }
 }
 - (void)xmppStreamDidAuthenticate:(XMPPStream *)sender {
-    if(self.isAuthenticated == NO && [self.delegate respondsToSelector:@selector(didLogin:withError:)]) {
+    if(self.userSettings.isAuthenticated == NO && [self.delegate respondsToSelector:@selector(didLogin:withError:)]) {
         [self.delegate didLogin:YES withError:nil];
     }
     [self goOnline];
-    self.isAuthenticated = YES;
+    self.userSettings.isAuthenticated = YES;
 }
 
 - (void)terminate {
@@ -223,4 +227,41 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 
 }
 
+- (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message
+{
+    if(![self.userSettings.jid isEqual:[message from]]) return;
+    
+    if([message isChatMessageWithBody])
+    {
+        NSString *messageStr = [[message elementForName:@"body"] stringValue];
+        NSString *paragraph = [NSString stringWithFormat:@"%@\n\n", messageStr];
+        if([self.delegate respondsToSelector:@selector(didReceiveMessage:)]){
+            [self.delegate didReceiveMessage:paragraph];
+        }
+
+      
+    }
+}
+- (void)xmppStream:(XMPPStream *)sender didFailToSendMessage:(XMPPMessage *)message error:(NSError *)error{
+    if([self.delegate respondsToSelector:@selector(didFailToSendMessage:error:)]){
+        NSString *messageStr = [[message elementForName:@"body"] stringValue];
+        [self.delegate didFailToSendMessage:messageStr error:error];
+    }
+}
+
+- (void)sendMessage:(NSString*)message toJid:(NSString*)toJid
+{
+    
+    if([message length] > 0)
+    {
+        NSXMLElement *body = [NSXMLElement elementWithName:@"body"];
+        [body setStringValue:message];
+        
+        NSXMLElement *message = [NSXMLElement elementWithName:@"message"];
+        [message addAttributeWithName:@"type" stringValue:@"chat"];
+        [message addAttributeWithName:@"to" stringValue:toJid];
+        [message addChild:body];
+        [self.xmppStream sendElement:message];
+    }
+}
 @end

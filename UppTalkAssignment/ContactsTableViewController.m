@@ -12,10 +12,11 @@
 #import "XMPPFramework.h"
 #import "DDLog.h"
 #import "XMPPUserCoreDataStorageObject.h"
-
+#import "ChatViewController.h"
 
 @interface ContactsTableViewController ()
 
+@property (nonatomic, weak) XMPPUserCoreDataStorageObject *receiverUser;
 @end
 
 static const int ddLogLevel = LOG_LEVEL_INFO;
@@ -73,11 +74,19 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 
 #pragma mark-
 - (void)viewDidLoad {
-     [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [super viewDidLoad];
-    
+    self.title = @"Contacts";
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:kShowChatSeque])
+    {
+        ChatViewController *vc = [segue destinationViewController];
+        [vc setReceiverUser:self.receiverUser];
+    }
+}
 /*! @brief move to parent and unload curret */
 - (void)didMoveToParentViewController:(UIViewController *)parent {
     if (![parent isEqual:self.parentViewController]) {
@@ -145,6 +154,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.receiverUser = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     [self performSegueWithIdentifier:kShowChatSeque sender:self];
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
