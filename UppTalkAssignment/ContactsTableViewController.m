@@ -7,93 +7,164 @@
 //
 
 #import "ContactsTableViewController.h"
+#import "XMPPCommunicationController.h"
+#import "AppDelegate.h"
+#import "XMPPFramework.h"
+#import "DDLog.h"
+#import "XMPPUserCoreDataStorageObject.h"
+
 
 @interface ContactsTableViewController ()
 
 @end
 
+static const int ddLogLevel = LOG_LEVEL_INFO;
+#define kAvailable @"Available"
+#define kAway @"Away"
+#define kOffline @"Offline"
+
 @implementation ContactsTableViewController
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark NSFetchedResultsController
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if (fetchedResultsController == nil)
+    {
+        NSManagedObjectContext *moc = [[AppDelegate getInstance].communication managedObjectContext_roster];
+        
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"XMPPUserCoreDataStorageObject"
+                                                  inManagedObjectContext:moc];
+        
+        NSSortDescriptor *sd1 = [[NSSortDescriptor alloc] initWithKey:@"sectionNum" ascending:YES];
+        NSSortDescriptor *sd2 = [[NSSortDescriptor alloc] initWithKey:@"displayName" ascending:YES];
+        
+        NSArray *sortDescriptors = @[sd1, sd2];
+        
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        [fetchRequest setEntity:entity];
+        [fetchRequest setSortDescriptors:sortDescriptors];
+        [fetchRequest setFetchBatchSize:10];
+        
+        fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                       managedObjectContext:moc
+                                                                         sectionNameKeyPath:@"sectionNum"
+                                                                                  cacheName:nil];
+        [fetchedResultsController setDelegate:self];
+        
+        
+        NSError *error = nil;
+        if (![fetchedResultsController performFetch:&error])
+        {
+            DDLogError(@"Error performing fetch: %@", error);
+        }
+        
+    }
+    
+    return fetchedResultsController;
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [[self tableView] reloadData];
+}
+
+#pragma mark-
 - (void)viewDidLoad {
      [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+/*! @brief move to parent and unload curret */
+- (void)didMoveToParentViewController:(UIViewController *)parent
+{
+    if (![parent isEqual:self.parentViewController]) {
+        [[AppDelegate getInstance].communication disconnect];
+
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return [[[self fetchedResultsController] sections] count];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex {
+    NSArray *sections = [[self fetchedResultsController] sections];
+    if (sectionIndex < [sections count])
+    {
+        id <NSFetchedResultsSectionInfo> sectionInfo = sections[sectionIndex];
+        return sectionInfo.numberOfObjects;
+    }
     
-    // Configure the cell...
+    return 0;
+
+}
+- (NSString *)tableView:(UITableView *)sender titleForHeaderInSection:(NSInteger)sectionIndex
+{
+    NSArray *sections = [[self fetchedResultsController] sections];
+    
+    if (sectionIndex < [sections count])
+    {
+        id <NSFetchedResultsSectionInfo> sectionInfo = sections[sectionIndex];
+        
+        int section = [sectionInfo.name intValue];
+        switch (section)
+        {
+            case 0  : return kAvailable;
+            case 1  : return kAway;
+            default : return kOffline;
+        }
+    }
+    
+    return @"";
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"XMPPUserCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:CellIdentifier];
+    }
+    
+    XMPPUserCoreDataStorageObject *user = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    
+    cell.textLabel.text = user.displayName;
+    [self configurePhotoForCell:cell user:user];
     
     return cell;
 }
-*/
+#pragma mark UITableViewCell helpers
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)configurePhotoForCell:(UITableViewCell *)cell user:(XMPPUserCoreDataStorageObject *)user
+{
+    if (user.photo != nil)
+    {
+        cell.imageView.image = user.photo;
+    }
+    else
+    {
+        NSData *photoData = [[[AppDelegate getInstance].communication xmppvCardAvatarModule] photoDataForJID:user.jid];
+        
+        if (photoData != nil){
+            cell.imageView.image = [UIImage imageWithData:photoData];
+        }
+        else {
+            cell.imageView.image = nil;
+        }
+    }
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
