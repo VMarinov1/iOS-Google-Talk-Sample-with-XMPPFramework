@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XMPPCommunicationController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) XMPPCommunicationController *communication;
 
++ (AppDelegate *)getInstance;
 
 @end
 

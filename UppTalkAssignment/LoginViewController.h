@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController
+#import "XMPPCommunicationController.h"
+
+
+@interface LoginViewController : UIViewController<XMPPCommunicationProtocol>
 
 
 @end

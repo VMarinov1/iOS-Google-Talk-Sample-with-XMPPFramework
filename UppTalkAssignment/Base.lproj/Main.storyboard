@@ -20,7 +20,7 @@
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zkk-L7-WLJ">
                                 <rect key="frame" x="150" y="147" width="300" height="142"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pk9-uw-huL">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="zoneprojects2010" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pk9-uw-huL">
                                         <rect key="frame" x="59" y="60" width="221" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -37,7 +37,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mFR-6b-pNI">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="vladimir.marinov@bulgariaspect.net" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mFR-6b-pNI">
                                         <rect key="frame" x="59" y="22" width="221" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -67,13 +67,42 @@
                     </view>
                     <navigationItem key="navigationItem" id="T9F-AH-trO"/>
                     <connections>
-                        <outlet property="password" destination="Pk9-uw-huL" id="yFt-cL-WWL"/>
-                        <outlet property="username" destination="mFR-6b-pNI" id="soA-rE-Kpw"/>
+                        <outlet property="passwordField" destination="Pk9-uw-huL" id="zjA-jQ-n8d"/>
+                        <outlet property="usernameField" destination="mFR-6b-pNI" id="IMB-2m-oUc"/>
+                        <segue destination="hN9-op-XIZ" kind="show" identifier="ShowContacts" id="eMe-Dj-VEn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1038.5" y="376.5"/>
+            <point key="canvasLocation" x="982" y="332"/>
+        </scene>
+        <!--Contacts Table View Controller-->
+        <scene sceneID="9MG-Jc-bLV">
+            <objects>
+                <tableViewController id="hN9-op-XIZ" customClass="ContactsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="L7V-9I-gQA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Dbb-wm-dRy">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dbb-wm-dRy" id="2eA-Uf-rbe">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hN9-op-XIZ" id="2V6-nw-iBs"/>
+                            <outlet property="delegate" destination="hN9-op-XIZ" id="KJ3-MN-Vwr"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Im8-Y8-bXw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1630" y="332"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ntq-NF-9Vv">
