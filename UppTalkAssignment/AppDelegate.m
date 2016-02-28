@@ -12,8 +12,6 @@
 
 @interface AppDelegate ()
 
-
-
 @end
 
 @implementation AppDelegate
@@ -21,8 +19,7 @@
 #pragma mark-
 
 /*! @brief static method returns application object */
-+ (AppDelegate *)getInstance
-{
++ (AppDelegate *)getInstance {
     return (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 

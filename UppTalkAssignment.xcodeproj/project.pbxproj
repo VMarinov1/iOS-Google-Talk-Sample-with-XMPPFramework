@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220BD98F1C834E2B00EF463F /* ChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 220BD98E1C834E2B00EF463F /* ChatTableViewController.m */; };
 		228235E61C831FD100F7900D /* XMPPCommunicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228235E51C831FD100F7900D /* XMPPCommunicationController.m */; };
 		228235E91C832B0400F7900D /* ContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228235E81C832B0400F7900D /* ContactsTableViewController.m */; };
 		22BD92091C818E8400B5937D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BD92081C818E8400B5937D /* main.m */; };
@@ -42,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		220BD98D1C834E2B00EF463F /* ChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTableViewController.h; sourceTree = "<group>"; };
+		220BD98E1C834E2B00EF463F /* ChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewController.m; sourceTree = "<group>"; };
 		228235E41C831FD100F7900D /* XMPPCommunicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPCommunicationController.h; sourceTree = "<group>"; };
 		228235E51C831FD100F7900D /* XMPPCommunicationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPCommunicationController.m; sourceTree = "<group>"; };
 		228235E71C832B0400F7900D /* ContactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsTableViewController.h; sourceTree = "<group>"; };
@@ -189,6 +192,8 @@
 				22BD920E1C818E8400B5937D /* LoginViewController.m */,
 				228235E71C832B0400F7900D /* ContactsTableViewController.h */,
 				228235E81C832B0400F7900D /* ContactsTableViewController.m */,
+				220BD98D1C834E2B00EF463F /* ChatTableViewController.h */,
+				220BD98E1C834E2B00EF463F /* ChatTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -398,6 +403,7 @@
 				22BD920F1C818E8400B5937D /* LoginViewController.m in Sources */,
 				22BD920C1C818E8400B5937D /* AppDelegate.m in Sources */,
 				228235E91C832B0400F7900D /* ContactsTableViewController.m in Sources */,
+				220BD98F1C834E2B00EF463F /* ChatTableViewController.m in Sources */,
 				22BD92091C818E8400B5937D /* main.m in Sources */,
 				228235E61C831FD100F7900D /* XMPPCommunicationController.m in Sources */,
 			);

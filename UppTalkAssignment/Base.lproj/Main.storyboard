@@ -84,25 +84,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="hN9-op-XIZ" id="2V6-nw-iBs"/>
+                            <outlet property="delegate" destination="hN9-op-XIZ" id="KJ3-MN-Vwr"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="NG2-aq-5VL" kind="show" identifier="ShowSingleChat" id="Vg6-qS-evC"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Im8-Y8-bXw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1630" y="332"/>
+        </scene>
+        <!--Chat Table View Controller-->
+        <scene sceneID="Rnc-YU-POy">
+            <objects>
+                <tableViewController id="NG2-aq-5VL" customClass="ChatTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Reu-Ss-wNv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Dbb-wm-dRy">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XEM-ZX-32H">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dbb-wm-dRy" id="2eA-Uf-rbe">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XEM-ZX-32H" id="emK-vy-7rn">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="hN9-op-XIZ" id="2V6-nw-iBs"/>
-                            <outlet property="delegate" destination="hN9-op-XIZ" id="KJ3-MN-Vwr"/>
+                            <outlet property="dataSource" destination="NG2-aq-5VL" id="1QC-og-SdQ"/>
+                            <outlet property="delegate" destination="NG2-aq-5VL" id="X2D-yf-Sg1"/>
                         </connections>
                     </tableView>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Im8-Y8-bXw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LUg-fN-gZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1630" y="332"/>
+            <point key="canvasLocation" x="2524" y="327"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ntq-NF-9Vv">

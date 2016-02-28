@@ -27,7 +27,7 @@
 #define kGoogleHostName @"talk.google.com"
 static const int ddLogLevel = LOG_LEVEL_INFO;
 
-@interface XMPPCommunicationController (){
+@interface XMPPCommunicationController () {
     XMPPvCardCoreDataStorage *xmppvCardStorage;
     XMPPvCardAvatarModule *xmppvCardAvatarModule;
 }
@@ -57,8 +57,8 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 
 @synthesize xmppvCardAvatarModule;
 
-- (id)init{
-    if(self = [super init]){
+- (id)init {
+    if(self = [super init]) {
         [DDLog addLogger:[DDTTYLogger sharedInstance] withLogLevel:XMPP_LOG_FLAG_SEND_RECV];
         [self setupStream];
         return self;
@@ -66,8 +66,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     return nil;
 }
 
-- (void)setupStream
-{
+- (void)setupStream {
     NSAssert(self.xmppStream == nil, @"Method setupStream invoked multiple times");
     
     // Setup xmpp stream
@@ -121,20 +120,17 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 #pragma mark Core Data
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-- (NSManagedObjectContext *)managedObjectContext_roster
-{
+- (NSManagedObjectContext *)managedObjectContext_roster {
     return [self.xmppRosterStorage mainThreadManagedObjectContext];
 }
 
-- (NSManagedObjectContext *)managedObjectContext_capabilities
-{
+- (NSManagedObjectContext *)managedObjectContext_capabilities {
     return [self.xmppCapabilitiesStorage mainThreadManagedObjectContext];
 }
 
 #pragma mark-
 /*! @brief login user with password in GTalk */
-- (BOOL)connectWithUser:(NSString*)username andPassword:(NSString*)password
-{
+- (BOOL)connectWithUser:(NSString*)username andPassword:(NSString*)password {
     if ([self.xmppStream isConnected] == YES) {
         return YES;
     }
@@ -147,8 +143,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     }
     
     NSError *error = nil;
-    if (![self.xmppStream connectWithTimeout:XMPPStreamTimeoutNone error:&error])
-    {
+    if (![self.xmppStream connectWithTimeout:XMPPStreamTimeoutNone error:&error]) {
         if([self.delegate respondsToSelector:@selector(didLogin:withError:)]){
             [self.delegate didLogin:NO withError:error];
         }
@@ -158,61 +153,52 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     return YES;
 }
 /*! @brief disconnect user and set status to offline */
-- (void)disconnect
-{
+- (void)disconnect {
     [self goOffline];
     [self.xmppStream disconnect];
     _isAuthenticated = NO;
 }
 
 /*! @brief set user's status to online */
-- (void)goOnline
-{
+- (void)goOnline {
     XMPPPresence *presence = [XMPPPresence presence];
     NSXMLElement *priority = [NSXMLElement elementWithName:@"priority" stringValue:@"24"];
     [presence addChild:priority];
     [[self xmppStream] sendElement:presence];
 }
-- (void)goOffline
-{
+- (void)goOffline {
     XMPPPresence *presence = [XMPPPresence presenceWithType:@"unavailable"];
     
     [[self xmppStream] sendElement:presence];
 }
 #pragma mark XMPPStream Delegate
-- (void)xmppStream:(XMPPStream *)sender socketDidConnect:(GCDAsyncSocket *)socket
-{
+- (void)xmppStream:(XMPPStream *)sender socketDidConnect:(GCDAsyncSocket *)socket {
     DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
 }
 
-- (void)xmppStreamDidConnect:(XMPPStream *)sender
-{
-    NSError *error = nil;
-    
-    if (![[self xmppStream] authenticateWithPassword:self.password error:&error])
-    {
+- (void)xmppStreamDidConnect:(XMPPStream *)sender {
+    NSError *error = nil;    
+    if (![[self xmppStream] authenticateWithPassword:self.password error:&error]) {
         NSLog(@"Error authenticating: %@", error);
     }
 }
-- (void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(NSXMLElement *)error{
-    if([self.delegate respondsToSelector:@selector(didLogin:withError:)]){
+- (void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(NSXMLElement *)error {
+    if([self.delegate respondsToSelector:@selector(didLogin:withError:)]) {
         NSMutableDictionary* details = [NSMutableDictionary dictionary];
         [details setValue:@"Error authenticating" forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"info" code:200 userInfo:details];
         [self.delegate didLogin:NO withError:error];
     }
 }
-- (void)xmppStreamDidAuthenticate:(XMPPStream *)sender
-{
-    
-    if(self.isAuthenticated == NO && [self.delegate respondsToSelector:@selector(didLogin:withError:)]){
+- (void)xmppStreamDidAuthenticate:(XMPPStream *)sender {
+    if(self.isAuthenticated == NO && [self.delegate respondsToSelector:@selector(didLogin:withError:)]) {
         [self.delegate didLogin:YES withError:nil];
     }
     [self goOnline];
     self.isAuthenticated = YES;
 }
 
-- (void)terminate{
+- (void)terminate {
     [self disconnect];
     [self.xmppStream removeDelegate:self];
     [self.xmppRoster removeDelegate:self];

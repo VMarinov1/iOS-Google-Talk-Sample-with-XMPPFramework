@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@interface ContactsTableViewController : UITableViewController<NSFetchedResultsControllerDelegate>
-{
+@interface ContactsTableViewController : UITableViewController<NSFetchedResultsControllerDelegate> {
     NSFetchedResultsController *fetchedResultsController;
 }
 

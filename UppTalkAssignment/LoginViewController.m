@@ -26,8 +26,7 @@
     self.title = @"Login";
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
     [super viewDidAppear:animated];
     [AppDelegate getInstance].communication.delegate = self;
@@ -46,8 +45,7 @@
 }
 #pragma mark XMPPCommunicationProtocol
      
-- (void)didLogin:(BOOL)success withError:(NSError*)error
-{
+- (void)didLogin:(BOOL)success withError:(NSError*)error {
     if(success == YES){
         [self performSegueWithIdentifier:kContactsSeque sender:self];
     }

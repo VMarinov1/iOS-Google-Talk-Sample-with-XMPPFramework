@@ -19,6 +19,8 @@
 @end
 
 static const int ddLogLevel = LOG_LEVEL_INFO;
+
+#define kShowChatSeque @"ShowSingleChat"
 #define kAvailable @"Available"
 #define kAway @"Away"
 #define kOffline @"Offline"
@@ -29,8 +31,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 #pragma mark NSFetchedResultsController
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-- (NSFetchedResultsController *)fetchedResultsController
-{
+- (NSFetchedResultsController *)fetchedResultsController {
     if (fetchedResultsController == nil)
     {
         NSManagedObjectContext *moc = [[AppDelegate getInstance].communication managedObjectContext_roster];
@@ -66,8 +67,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     return fetchedResultsController;
 }
 
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [[self tableView] reloadData];
 }
 
@@ -79,8 +79,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 }
 
 /*! @brief move to parent and unload curret */
-- (void)didMoveToParentViewController:(UIViewController *)parent
-{
+- (void)didMoveToParentViewController:(UIViewController *)parent {
     if (![parent isEqual:self.parentViewController]) {
         [[AppDelegate getInstance].communication disconnect];
 
@@ -109,8 +108,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     return 0;
 
 }
-- (NSString *)tableView:(UITableView *)sender titleForHeaderInSection:(NSInteger)sectionIndex
-{
+- (NSString *)tableView:(UITableView *)sender titleForHeaderInSection:(NSInteger)sectionIndex {
     NSArray *sections = [[self fetchedResultsController] sections];
     
     if (sectionIndex < [sections count])
@@ -146,10 +144,13 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     
     return cell;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:kShowChatSeque sender:self];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
 #pragma mark UITableViewCell helpers
 
-- (void)configurePhotoForCell:(UITableViewCell *)cell user:(XMPPUserCoreDataStorageObject *)user
-{
+- (void)configurePhotoForCell:(UITableViewCell *)cell user:(XMPPUserCoreDataStorageObject *)user {
     if (user.photo != nil)
     {
         cell.imageView.image = user.photo;
